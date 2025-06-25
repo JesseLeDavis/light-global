@@ -1,0 +1,18 @@
+.home-hero {
+  min-height: 100vh;
+  background-color: #0f254a;
+  h1 {
+    font-family: "Poppins", sans-serif;
+    width: 60%;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    h1{
+      font-size: 100px;
+    }
+  }
+}

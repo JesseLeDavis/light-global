@@ -1,0 +1,137 @@
+// MOBILE FIRST
+
+.site-header {
+  img{
+    min-width: 200px;
+  }
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #0f254a;
+    transform: translateX(100%);
+    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 999;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+
+      li a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        transition: 0.2s ease-in-out;
+
+        &.active {
+          color: #1cc7b6;
+        }
+        &:hover{
+          color: #1cc7b6;
+          font-size: 1.05rem;
+        }
+      }
+    }
+  }
+
+  // DESKTOP STYLES
+  @media (min-width: 768px) {
+    .main-nav {
+      position: static;
+      transform: none;
+      height: auto;
+      background: transparent;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+      display: flex !important;
+
+
+      .close-menu {
+        display: none;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        margin: 0;
+      }
+
+      ul li a {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #0f254a;
+
+        &.active {
+          color: #1cc7b6;
+        }
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  // HAMBURGER BUTTON (always visible on mobile)
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1001;
+
+    .bar {
+      height: 2px;
+      width: 100%;
+      background-color: #0f254a;
+      border-radius: 1px;
+    }
+
+    &:hover .bar {
+      background-color: #1cc7b6;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
