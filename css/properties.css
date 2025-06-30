@@ -142,11 +142,18 @@
   padding: 20px 30px;
   border-radius: 100px;
   width: fit-content;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
 .btn-light-blue{
   background: #3D8ACA;
   color: white;
+}
+
+.btn-white{
+  background: white;
+  color: #279FA1;
 }
 
 

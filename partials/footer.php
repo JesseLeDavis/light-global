@@ -3,7 +3,7 @@
         <div class="footer-top">
             <div class="fb-flex fb-row fb-2"> <img src="../assets/images/footer-logo.svg" alt="logo"></div>
 
-            <div class="footer-nav fb-flex fb-row">
+            <div class="footer-nav fb-flex fb-row fb-1">
                 <div class="fb fb-flex fb fb-column">
                     <a href="#">Home</a>
                     <a href="#">Mission</a>

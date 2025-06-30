@@ -47,27 +47,29 @@
         </section>
 
         <!-- FEATURES SECTION -->
-        <section class="features">
-            <div class="grid">
+        <section class="home-features container">
+            <div class="first-section">
                 <div class="img-placeholder">Photo of two leaders connecting</div>
                 <div class="feature-card">
                     <h3>Forge Life-Changing Relationships</h3>
                     <p>Real growth happens in relationships...</p>
-                    <a href="#" class="btn-secondary">Journey With Other World Changers</a>
+                    <a href="#" class="btn-large btn-white hover">Journey With Other World Changers</a>
                 </div>
+            </div>
+            <div class="second-section">
                 <div class="feature-card">
                     <h3>Elevate Your Impact as a Leader</h3>
                     <p>We provide personalized growth tracks...</p>
-                    <a href="#" class="btn-secondary">Learn More</a>
+                    <a href="#" class="btn-large btn-white hover">Learn More</a>
                 </div>
                 <div class="img-placeholder">Photo of Darren connecting</div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="cta">
+        <section class="home-cta">
             <h2>Ready to Step Into Your Next Season of Leadership?</h2>
-            <a href="#" class="btn-primary">Apply Today</a>
+            <a href="#" class="hover btn-large btn-light-blue">Apply Today</a>
         </section>
 
     </main>
