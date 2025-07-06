@@ -1,0 +1,54 @@
+.resources-page {
+  .resources-section {
+    padding: 100px 20px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      color: #0f254a;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      color: #0f254a;
+      line-height: 170%;
+      margin-bottom: 40px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 18px;
+      font-weight: 700;
+      background-color: #3D8ACA;
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #2a6ea2;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .resources-section {
+      padding: 140px 20px;
+
+      h1 {
+        font-size: 60px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+    }
+  }
+}

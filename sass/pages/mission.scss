@@ -37,7 +37,7 @@
       font-family: "Poppins", sans-serif;
       font-weight: 700;
       font-style: normal;
-      font-size: 150px;
+      font-size: 50px;
       color: #3D8ACA;
     }
 
@@ -46,7 +46,7 @@
       color: #0f254a;
       padding: 20px 0;
       line-height: 170%;
-      font-size: 24px;
+      font-size: 15px;
     }
   }
 
@@ -85,6 +85,12 @@
       }
       .mission-info {
         width: 60%;
+        h2{
+          font-size: 150px;
+        }
+        p{
+          font-size: 25px;
+        }
       }
       .mission-cta{
         padding: 100px;

@@ -1,0 +1,147 @@
+.meet-the-founder-page {
+  .founder-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    background-color: white;
+    padding: 200px 30px;
+    text-align: left;
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 45px;
+      color: #3D8ACA;
+    }
+
+    .subheadline {
+      font-family: "Poppins", sans-serif;
+      color: #0f254a;
+      font-size: 18px;
+    }
+  }
+
+  .founder-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 80px 20px;
+    text-align: center;
+
+
+    .founder-image {
+      max-width: 100%;
+      min-height: 300px;
+      border-radius: 20px;
+      background-color: #0f254a;
+      background-image: url("../../assets/images/dad-headshot.jpg");
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .founder-bio {
+      max-width: 700px;
+
+      h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 60px;
+        font-weight: 700;
+        color: #3D8ACA;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        line-height: 170%;
+        color: #0f254a;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .founder-speaking {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 20px;
+    align-items: center;
+    text-align: center;
+
+    .speaking-content {
+      max-width: 700px;
+
+      h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #0f254a;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        color: #0f254a;
+        margin-bottom: 50px;
+        line-height: 170%;
+      }
+    }
+
+    .speaking-image img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 20px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .founder-header{
+      min-height: 100vh;
+    }
+    .founder-profile {
+      flex-direction: row;
+      justify-content: center;
+      text-align: left;
+
+
+
+      .founder-image {
+        flex: 1;
+        text-align: right;
+      }
+
+      .founder-bio {
+        flex: 2;
+        padding-left: 40px;
+
+        p{
+          font-size: 20px;
+        }
+      }
+    }
+
+    .founder-speaking {
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 30px;
+
+      .speaking-content {
+        flex: 2;
+      }
+    }
+
+    .founder-header {
+      padding: 100px;
+      h1 {
+        font-size: 180px;
+      }
+      .subheadline {
+        font-size: 20px;
+      }
+    }
+  }
+}

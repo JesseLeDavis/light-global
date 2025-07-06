@@ -23,10 +23,10 @@
                 <li><a href="index.php" class="<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? 'active' : '' ?>">Home</a></li>
                 <li><a href="mission.php" class="<?= basename($_SERVER['PHP_SELF']) === 'mission.php' ? 'active' : '' ?>">Mission</a></li>
                 <li><a href="community.php" class="<?= basename($_SERVER['PHP_SELF']) === 'community.php' ? 'active' : '' ?>">Community</a></li>
-                <li><a href="founder.php" class="<?= basename($_SERVER['PHP_SELF']) === 'founder.php' ? 'active' : '' ?>">Meet The Founder</a></li>
-                <li><a href="gateway.php" class="<?= basename($_SERVER['PHP_SELF']) === 'gateway.php' ? 'active' : '' ?>">Gateway City Project</a></li>
+                <li><a href="meet-the-founder.php" class="<?= basename($_SERVER['PHP_SELF']) === 'meet-the-founder.php' ? 'active' : '' ?>">Meet The Founder</a></li>
+                <li><a href="gateway-city-project.php" class="<?= basename($_SERVER['PHP_SELF']) === 'gateway-city-project.php' ? 'active' : '' ?>">Gateway City Project</a></li>
                 <li><a href="resources.php" class="<?= basename($_SERVER['PHP_SELF']) === 'resources.php' ? 'active' : '' ?>">Resources</a></li>
-                <li><a href="give.php" class="<?= basename($_SERVER['PHP_SELF']) === 'give.php' ? 'active' : '' ?>">Give</a></li>
+                <li><a href="#" class="<?= basename($_SERVER['PHP_SELF']) === 'give.php' ? 'active' : '' ?>">Give</a></li>
             </ul>
         </nav>
         </div>
