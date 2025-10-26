@@ -1,6 +1,11 @@
 .home-hero {
   min-height: 100vh;
-  background-color: #0f254a;
+  background-image: url('../../../assets/images/homeBanner.jpeg');
+  background-size: cover;       /* Makes the image cover the container */
+  background-position: center;  /* Centers the image */
+  background-color: rgba(23, 37, 62, 1); /* Black with 50% opacity */
+  background-blend-mode: overlay; /**/
+  background-repeat: no-repeat; /* Prevents tiling */
   h1 {
     font-family: "Poppins", sans-serif;
     width: 60%;

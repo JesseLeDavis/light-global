@@ -4,21 +4,21 @@
     <main>
         <div class="mission-page">
             <section class="mission-header">
-                <h1>Elevating Kingdom Impact Through Mentorship</h1>
+                <h1>Elevating Kingdom Impact Through Transformative Mentorship & Community</h1>
                 <p class="subheadline">We believe that when leaders grow, communities transform.</p>
             </section>
 
             <section class="mission-info first">
                 <h2>Our Who?</h2>
                 <p>
-                    LIGHT Global is a collective of high-achieving Marketplace & NPO leaders who are ready to elevate their Kingdom impact through transformative mentorship.
+                    LIGHT Global is a collective of high-achieving Marketplace & NPO leaders who are ready to elevate their Kingdom impact by journeying with others through transformative mentorship and community.
                 </p>
             </section>
 
             <section class="mission-info">
                 <h2>Our What?</h2>
                 <p>
-                    Within the LIGHT Global Community each leader benefits from tailored mentorship designed to amplify their strengths while addressing specific leadership goals. Through this personalized transformative approach, leaders find themselves immersed in a vibrant ecosystem where ideas flourish and innovative solutions emerge that inspire global change and transform communities.
+                    Within the LIGHT Global Community each leader has the opportunity to benefit from tailored mentorship designed to amplify their strengths while addressing specific leadership goals. Through this personalized transformative approach, leaders find themselves immersed in a vibrant ecosystem where ideas flourish and innovative solutions emerge that inspire global change and transform communities.
                 </p>
             </section>
 
@@ -29,10 +29,18 @@
                 </p>
             </section>
 
+
+            <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="cta-link">
             <section class="mission-cta">
-                <h2>Explore the Possibilities</h2>
-                <a href="https://your-mighty-network-link.com" class="btn-large btn-white">Apply for Membership</a>
+
+                    <div>
+                        <h2>Explore the Possibilities</h2>
+                        <span class="btn-large btn-white">Apply for Membership</span>
+                    </div>
+
             </section>
+            </a>
+
         <div>
     </main>
 

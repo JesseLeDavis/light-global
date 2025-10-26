@@ -5,7 +5,7 @@
         <section class="community-header">
             <h1>Your Global Community Awaits</h1>
             <p class="subheadline">
-                Join a vibrant collective of leaders from around the world who are committed to advancing the Kingdom through shared wisdom, collaboration, and mentorship.
+                Join a vibrant collective of leaders from around the world who are committed to advancing the Kingdom through shared wisdom, collaboration, mentorship, and community.
             </p>
         </section>
 
@@ -19,11 +19,12 @@
             </p>
             </div>
             <div class="image-container">
+            </div>
         </section>
 
         <section class="community-cta">
             <h2>Join the Movement</h2>
-            <a href="https://your-mighty-network-link.com" class="btn-large btn-white">Apply for Membership</a>
+            <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="btn-large btn-white">Apply for Membership</a>
         </section>
 
     </main>

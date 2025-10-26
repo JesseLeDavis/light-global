@@ -8,7 +8,7 @@
             <div class="container-med fb-flex fb-column fb-1 fb-jc-spaceBetween">
                 <span></span>
                 <h1>The world needs transformational leaders!</h1>
-                <a href="#" class="hover btn-large btn-light-blue middle fw-bold ff-body">Apply Today</a>
+                <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="hover btn-large btn-light-blue middle fw-bold ff-body">Apply Today</a>
             </div>
         </section>
 
@@ -35,41 +35,91 @@
         </section>
 
         <!-- TESTIMONIALS -->
-        <section class="home-testimonials">
-            <div class="testimonial-heading-container">
-                <img class="first" src="assets/images/first.svg" alt="">
-                <h3>Here's What Leaders Impacted by LIGHT Global Are Saying</h3>
-                <img class="second" src="assets/images/2nd.svg" alt="">
-            </div>
-            <div class="my-slider">
-                <!-- Slides here -->
-            </div>
-        </section>
+<!--        <section class="home-testimonials">-->
+<!--            <div class="testimonial-heading-container">-->
+<!--                <img class="first" src="assets/images/first.svg" alt="">-->
+<!--                <h3>Here's What Leaders Impacted by LIGHT Global Are Saying</h3>-->
+<!--                <img class="second" src="assets/images/2nd.svg" alt="">-->
+<!--            </div>-->
+<!--            <div class="my-slider">-->
+<!--                <div class="slide">-->
+<!--                    <div class="testimonial-card">-->
+<!--                        <div class="profile-img">-->
+<!--                            <img src="assets/images/avatar-placeholder.svg" alt="Leader photo" />-->
+<!--                        </div>-->
+<!--                        <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."</p>-->
+<!--                        <p class="name">Jane Doe</p>-->
+<!--                        <p class="location">Kiev, Ukraine</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="slide">-->
+<!--                    <div class="testimonial-card">-->
+<!--                        <div class="profile-img">-->
+<!--                            <img src="assets/images/avatar-placeholder.svg" alt="Leader photo" />-->
+<!--                        </div>-->
+<!--                        <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."</p>-->
+<!--                        <p class="name">Jane Doe</p>-->
+<!--                        <p class="location">Kiev, Ukraine</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="slide">-->
+<!--                    <div class="testimonial-card">-->
+<!--                        <div class="profile-img">-->
+<!--                            <img src="assets/images/avatar-placeholder.svg" alt="Leader photo" />-->
+<!--                        </div>-->
+<!--                        <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."</p>-->
+<!--                        <p class="name">Jane Doe</p>-->
+<!--                        <p class="location">Kiev, Ukraine</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="slide">-->
+<!--                    <div class="testimonial-card">-->
+<!--                        <div class="profile-img">-->
+<!--                            <img src="assets/images/avatar-placeholder.svg" alt="Leader photo" />-->
+<!--                        </div>-->
+<!--                        <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."</p>-->
+<!--                        <p class="name">Jane Doe</p>-->
+<!--                        <p class="location">Kiev, Ukraine</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="slide">-->
+<!--                    <div class="testimonial-card">-->
+<!--                        <div class="profile-img">-->
+<!--                            <img src="assets/images/avatar-placeholder.svg" alt="Leader photo" />-->
+<!--                        </div>-->
+<!--                        <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."</p>-->
+<!--                        <p class="name">Jane Doe</p>-->
+<!--                        <p class="location">Kiev, Ukraine</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--        </section>-->
 
         <!-- FEATURES SECTION -->
         <section class="home-features container">
             <div class="first-section">
-                <div class="img-placeholder">Photo of two leaders connecting</div>
+                <div class="img-placeholder-1"></div>
                 <div class="feature-card">
                     <h3>Forge Life-Changing Relationships</h3>
-                    <p>Real growth happens in relationships...</p>
-                    <a href="#" class="btn-large btn-white hover">Journey With Other World Changers</a>
+                    <p>Genuine peer friendships offer profound encouragement…</p>
+                    <a href="/community" class="btn-large btn-white hover">Journey With Other World Changers</a>
                 </div>
             </div>
             <div class="second-section">
                 <div class="feature-card">
                     <h3>Elevate Your Impact as a Leader</h3>
-                    <p>We provide personalized growth tracks...</p>
-                    <a href="#" class="btn-large btn-white hover">Learn More</a>
+                    <p>We provide personalized mentorship opportunities…</p>
+                    <a href="/mission" class="btn-large btn-white hover">Learn More</a>
                 </div>
-                <div class="img-placeholder">Photo of Darren connecting</div>
+                <div class="img-placeholder-2"></div>
             </div>
         </section>
 
         <!-- CTA -->
         <section class="home-cta">
             <h2>Ready to Step Into Your Next Season of Leadership?</h2>
-            <a href="#" class="hover btn-large btn-light-blue">Apply Today</a>
+            <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="hover btn-large btn-light-blue">Apply Today</a>
         </section>
 
     </main>

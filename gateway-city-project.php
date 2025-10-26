@@ -11,15 +11,15 @@
         </section>
 
 
-<div class="container">
-        <div class="video">
-            VIDEO
-        </div>
-</div>
+<!--<div class="container">-->
+<!--        <div class="video">-->
+<!--            VIDEO-->
+<!--        </div>-->
+<!--</div>-->
 
         <section class="gateway-info">
             <p>
-                LIGHT Global believes the transformation of key Gateway Cities hinges on Spirit-led collaboration between high-capacity leaders in business and ministry.
+                LIGHT Global believes the transformation of key Gateway Cities around the world hinges on Spirit-led collaboration between high capacity marketplace and non profit organization leaders.
             </p>
 
             <ul class="gateway-points">

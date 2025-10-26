@@ -5,9 +5,15 @@
     justify-content: center;
     gap: 30px;
     min-height: 100vh;
-    background-color: #0f254a;
     padding: 30px;
     text-align: left;
+
+    background-image: url('../../assets/images/hands.jpeg');
+    background-size: cover;       /* Makes the image cover the container */
+    background-position: center;  /* Centers the image */
+    background-color: rgba(23, 37, 62, .3); /* Black with 50% opacity */
+    background-blend-mode: overlay;
+    background-repeat: no-repeat; /* Prevents tiling */
 
     h1 {
       font-family: "Poppins", sans-serif;

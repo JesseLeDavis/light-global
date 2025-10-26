@@ -42,6 +42,20 @@
     }
   }
 
+  .who-we-are,
+  .what-we-do,
+  .why-it-matters {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out; // slowed down
+    will-change: transform, opacity;
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   @media (min-width: 768px) {
     img{
       right: 63%;
