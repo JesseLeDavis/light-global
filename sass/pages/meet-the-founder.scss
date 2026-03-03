@@ -59,6 +59,30 @@
         color: #0f254a;
         margin-bottom: 20px;
       }
+
+      .founder-social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+
+        a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+
+          &:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+          }
+
+          img, svg {
+            width: 38px;
+            height: 38px;
+          }
+        }
+      }
     }
   }
 
@@ -119,6 +143,10 @@
 
         p{
           font-size: 20px;
+        }
+
+        .founder-social-links {
+          justify-content: flex-start;
         }
       }
     }

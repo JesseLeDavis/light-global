@@ -1,17 +1,46 @@
+<?php
+// SEO Variables - Set defaults if not defined by page
+$page_title = isset($page_title) ? $page_title : 'LIGHT Global - Transformative Mentorship for Kingdom Impact';
+$page_description = isset($page_description) ? $page_description : 'Equipping high-achieving leaders to expand their Kingdom impact through transformative mentorship. Impacting Gateway Cities across the world.';
+$page_url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$page_image = isset($page_image) ? $page_image : (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/assets/images/largelogo.png';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Light Global</title>
+
+    <!-- Primary Meta Tags -->
+    <title><?php echo htmlspecialchars($page_title); ?></title>
+    <meta name="title" content="<?php echo htmlspecialchars($page_title); ?>" />
+    <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>" />
+    <meta name="keywords" content="mentorship, kingdom impact, leadership development, nonprofit, transformative mentorship, gateway cities, Darren C Davis" />
+    <meta name="author" content="LIGHT Global" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo htmlspecialchars($page_url); ?>" />
+    <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>" />
+    <meta property="og:description" content="<?php echo htmlspecialchars($page_description); ?>" />
+    <meta property="og:image" content="<?php echo htmlspecialchars($page_image); ?>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<?php echo htmlspecialchars($page_url); ?>" />
+    <meta property="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>" />
+    <meta property="twitter:description" content="<?php echo htmlspecialchars($page_description); ?>" />
+    <meta property="twitter:image" content="<?php echo htmlspecialchars($page_image); ?>" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="<?php echo htmlspecialchars($page_url); ?>" />
 
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.ico" sizes="any">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
-    <meta name="theme-color" content="#FFFFFF">
+    <meta name="theme-color" content="#3D8ACA">
 
     <!-- Main CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

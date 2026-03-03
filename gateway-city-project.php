@@ -1,4 +1,8 @@
-<?php include('partials/head.php'); ?>
+<?php
+$page_title = 'Gateway City Project: Kingdom Leadership Impact | LIGHT Global';
+$page_description = 'Transforming Gateway Cities through Spirit-led collaboration. LIGHT Global partners marketplace and nonprofit leaders for lasting Kingdom impact.';
+include('partials/head.php');
+?>
 <?php include('partials/header.php'); ?>
 
     <main class="gateway-page">
@@ -31,7 +35,7 @@
 
         <section class="gateway-cta">
             <h2>Ready to Disciple Nations?</h2>
-            <a href="https://your-mighty-network-link.com" class="hover btn-large btn-white">Apply for Membership</a>
+            <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="hover btn-large btn-white">Apply for Membership</a>
         </section>
 
     </main>

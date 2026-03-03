@@ -1,4 +1,8 @@
-<?php include('partials/head.php'); ?>
+<?php
+$page_title = 'Darren C Davis: Leadership Mentor & Founder | LIGHT Global';
+$page_description = 'Meet Darren C Davis — Fortune 100 leader, international speaker, and author of The Eleventh Hour. Founder of LIGHT Global.';
+include('partials/head.php');
+?>
 <?php include('partials/header.php'); ?>
 
     <main class="meet-the-founder-page">
@@ -23,8 +27,21 @@
                     Darren's passion is helping leaders grow spiritually, professionally, and personally—empowering them to influence culture and transform communities.
                 </p>
                 <p>
-                    Check out <em>The Eleventh Hour</em>, which chronicles Darren's journey to understanding his true identity in God, his unique calling to love people and his generational destiny to impact the world.
+                    Check out <em>The Eleventh Hour</em>, which chronicles Darren's journey to understanding his true identity in God, unique calling to love people and generational destiny to impact the world.
                 </p>
+
+                <!-- Social Media Links -->
+                <div class="founder-social-links">
+                    <a href="https://www.facebook.com/darrencdavis.transformation" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <img src="assets/images/facebook-dark.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/darrencdavis/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <img src="assets/images/instagram-dark.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/darren-c-davis-738741261/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <img src="assets/images/linkedin-dark.svg" alt="LinkedIn">
+                    </a>
+                </div>
             </div>
         </section>
 

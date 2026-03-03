@@ -1,0 +1,136 @@
+================================================================================
+  THE ELEVENTH HOUR — PRE-DEPLOYMENT TODO
+  Items requiring your action before pushing to Hostinger
+================================================================================
+
+BLOCKING (site will not convert without these)
+-----------------------------------------------
+[ ] 1. SET PURCHASE URL
+    Both CTA buttons currently link to href="#" — they do nothing.
+    Replace with your actual purchase link (Amazon, Shopify, Stripe checkout, etc.)
+
+    In index.html, update both:
+      Line ~72:  <a href="#" class="cta-button primary-cta" ...>
+      Line ~114: <a href="#" class="cta-button secondary-cta" ...>
+
+    Replace "#" with your real order URL, e.g.:
+      href="https://www.amazon.com/dp/YOUR_ASIN"
+      or
+      href="https://buy.stripe.com/YOUR_LINK"
+
+[ ] 2. COMPRESS THE BOOK COVER IMAGE
+    assets/book.PNG is ~2MB. This will hurt load time and Core Web Vitals.
+    Target: under 400KB. Steps:
+      - Open in Photoshop, Preview, or Squoosh (squoosh.app)
+      - Export as WebP at 80–85% quality (preferred) or compress the PNG
+      - If using WebP, update index.html to use a <picture> tag with fallback:
+          <picture>
+            <source srcset="assets/book.webp" type="image/webp">
+            <img src="assets/book.PNG" alt="The Eleventh Hour Book Cover" class="book-image">
+          </picture>
+
+[ ] 3. ADD FAVICON FILES
+    No favicon is linked in index.html. Without it, browsers show a blank tab icon.
+    Create and add:
+      - favicon.ico  (32x32)
+      - apple-touch-icon.png  (180x180)
+    Place both in eleventh-hour-book/ and add to <head> in index.html:
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+IMPORTANT (SEO & TRUST)
+------------------------
+[ ] 4. UPDATE CANONICAL URL
+    If the book lives at a different path than /eleventh-hour-book/, update:
+      index.html line ~18: <link rel="canonical" href="https://thelightglobal.com/eleventh-hour-book/">
+    Also update all og:image and twitter:image URLs with your real domain.
+
+[ ] 5. UPDATE SCHEMA.ORG DATA
+    In the <script type="application/ld+json"> block, fill in real values:
+      - "datePublished": add the actual publication year/date
+      - "isbn": add if you have one
+      - "offers" > "price": add the book price
+      - "offers" > "priceCurrency": "USD"
+      - All image and URL fields use thelightglobal.com — verify this is correct
+
+[ ] 6. ADD BOOK PRICE TO THE PAGE
+    Customers need to know what they're buying before clicking Order Now.
+    Add the price near both CTA buttons. Example:
+      <p class="price">$19.99</p>
+    Style it to match the section (white text in hero, dark text in CTA box).
+
+[ ] 7. UPDATE FOOTER COPYRIGHT YEAR
+    index.html footer: © 2025 The Eleventh Hour. All rights reserved.
+    Update to current year or use the publication year if that's intentional.
+
+
+RECOMMENDED (IMPROVES CONVERSIONS)
+------------------------------------
+[ ] 8. ADD TESTIMONIALS / REVIEWS
+    The page has no social proof. Even 2–3 short quotes from early readers
+    dramatically improve conversion. Add a section between "About the Book"
+    and "About the Author" with reader names and short quotes.
+
+[ ] 9. ADD "AS SEEN IN" / PRESS LOGOS
+    If Darren has media appearances or endorsements, a logo row above the
+    final CTA section builds authority.
+
+[ ] 10. DISPLAY BOOK FORMAT OPTIONS
+    Clarify what the customer is ordering: hardcover, paperback, ebook, audiobook?
+    Add a brief line near the CTA: "Available in Paperback & eBook"
+
+[ ] 11. ADD A MONEY-BACK GUARANTEE
+    A simple "30-day satisfaction guarantee" near the final CTA removes
+    purchase hesitation with no real downside.
+
+
+ANALYTICS & TRACKING
+---------------------
+[ ] 12. ADD GOOGLE ANALYTICS (GA4)
+    No analytics tracking is set up. Add your GA4 snippet to <head>:
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+      </script>
+    Set up a conversion event for the CTA button click.
+
+[ ] 13. ADD GOOGLE SEARCH CONSOLE
+    Submit the sitemap and verify the page after deployment:
+      https://search.google.com/search-console/
+
+
+HOSTINGER-SPECIFIC
+------------------
+[ ] 14. UPLOAD FILES
+    The eleventh-hour-book/ directory is standalone (no PHP, no .htaccess needed).
+    Upload the entire folder to your Hostinger public_html or a subdirectory.
+    Confirm the live URL matches your canonical link.
+
+[ ] 15. TEST HTTPS
+    Confirm SSL is active on Hostinger and the page loads at https://.
+    All og:image and schema URLs use https — they must match.
+
+[ ] 16. TEST ON MOBILE
+    Open on a real iPhone and Android device before launch.
+    Verify the hero image loads fast, CTAs are tappable, and text is readable.
+
+[ ] 17. RUN A PAGESPEED TEST
+    After deployment: https://pagespeed.web.dev/
+    Target: 90+ on mobile. The main thing holding you back will be book.PNG
+    size (see item #2 above).
+
+
+COMPILED CSS NOTE
+-----------------
+The sass/style.scss source file was updated. If you make further SCSS changes,
+recompile to css/style.css using:
+  sass sass/style.scss css/style.css
+or watch mode:
+  sass --watch sass/style.scss css/style.css
+
+================================================================================

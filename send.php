@@ -9,15 +9,23 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+// Load environment variables
+$envFile = __DIR__ . '/.env';
+if (file_exists($envFile)) {
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($name, $value) = explode('=', $line, 2);
+        $_ENV[trim($name)] = trim($value);
+    }
+}
+
 // Only accept POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Content-Type: application/json");
     echo json_encode(["success" => false, "error" => "Invalid request method"]);
     exit;
 }
-
-// Log POST data for debugging (remove in production)
-error_log("Received POST data: " . print_r($_POST, true));
 
 // Validate required fields - handle both space and underscore versions
 $required_fields = [
@@ -33,20 +41,19 @@ $required_fields = [
 
 foreach ($required_fields as $display_name => $field_name) {
     if (empty($_POST[$field_name]) && empty($_POST[$display_name])) {
-        error_log("Missing required field: $display_name (looked for both '$display_name' and '$field_name')");
         header("Content-Type: application/json");
         echo json_encode(["success" => false, "error" => "Required field missing: $display_name"]);
         exit;
     }
 }
 
-// SMTP Configuration - UPDATE THESE WITH YOUR ACTUAL CREDENTIALS
-$smtp_host = 'smtp.hostinger.com';
-$smtp_port = 465;
-$smtp_username = 'noreply@bitglow.tech'; // TODO: UPDATE WITH YOUR ACTUAL EMAIL
-$smtp_password = 'Hiddenhollowman1@'; // UPDATE WITH YOUR ACTUAL PASSWORD
+// SMTP Configuration - loaded from .env file
+$smtp_host = $_ENV['SMTP_HOST'] ?? 'smtp.gmail.com';
+$smtp_port = $_ENV['SMTP_PORT'] ?? 587;
+$smtp_username = $_ENV['SMTP_USERNAME'] ?? '';
+$smtp_password = $_ENV['SMTP_PASSWORD'] ?? '';
 
-$to = "jesseld24@gmail.com";
+$to = "DCD@thelightglobal.com";
 $subject = "Speaking Request Submission - " . clean(getField('Contact Name', 'Contact_Name'));
 
 // Sanitize inputs
@@ -105,7 +112,7 @@ try {
     $mail->SMTPAuth = true;
     $mail->Username = $smtp_username;
     $mail->Password = $smtp_password;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = $smtp_port;
     
     // Enable debugging for troubleshooting (remove in production)
@@ -128,15 +135,10 @@ try {
     
 } catch (Exception $e) {
     $success = false;
-    $message = "Failed to send email: " . $mail->ErrorInfo;
-    
-    // Log error for debugging
+    $message = "There was an issue sending your request. Please try again or contact us directly.";
     error_log("PHPMailer Error: " . $mail->ErrorInfo);
     error_log("Exception: " . $e->getMessage());
 }
-
-// Additional debugging - log the response we're sending
-error_log("Sending JSON response: success=" . ($success ? 'true' : 'false') . ", message=" . $message);
 
 // Return JSON response
 header("Content-Type: application/json");

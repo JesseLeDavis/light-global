@@ -1,0 +1,186 @@
+LIGHT GLOBAL — PRE-DEPLOYMENT CHECKLIST
+========================================
+Generated after multi-agent audit (UI/UX, Design, Developer, SEO)
+Last updated: 2026-03-03
+
+============================================================
+🚨 CRITICAL — BLOCKING (must fix before going live)
+============================================================
+
+[ ] ROTATE ALL CREDENTIALS IMMEDIATELY
+    - Your SMTP password (Hiddenhollowman1@) and Stripe keys are in git history
+    - Even after fixing .env, the credentials are baked into past commits
+    - Steps:
+      1. Change your Gmail/Hostinger SMTP password NOW
+      2. Roll your Stripe Secret Key in the Stripe dashboard
+      3. Update .env on the server with new values
+      4. Never commit .env — confirm it is in .gitignore
+    - If you want to fully scrub the history: use `git filter-repo` or BFG Repo Cleaner
+      (only necessary if this repo is or will be public)
+
+[ ] DELETE test-smtp.php FROM PRODUCTION SERVER
+    - This file exposes SMTP config and can be used to send mail on your behalf
+    - Do not upload it; or block it at .htaccess (already done) AND delete the file
+
+[ ] VERIFY .gitignore IS IN PLACE BEFORE PUSHING
+    - Confirm .gitignore includes: .env, vendor/, composer.lock (optional), *.log
+    - Run: git status — make sure .env does not appear as staged/tracked
+
+[ ] SET STRIPE TO LIVE MODE
+    - Currently configured with test keys (sk_test_...)
+    - In stripe-checkout.php, swap test secret key for live secret key from Stripe dashboard
+    - In give.php JS, swap publishable key (pk_test_...) for live publishable key
+    - Test the full donation flow end-to-end in live mode with a real card
+
+[ ] CONFIGURE STRIPE WEBHOOK
+    - donation-success.php currently only shows a thank-you page — it does NOT verify
+      that payment was actually completed
+    - Anyone who navigates directly to /donation-success will see the success message
+    - Proper implementation: create a /stripe-webhook.php endpoint that listens for
+      checkout.session.completed events and marks the donation as confirmed
+    - At minimum: pass the Stripe session_id from the redirect URL and verify it
+
+============================================================
+⚠️  IMPORTANT — Do before launch
+============================================================
+
+[ ] VERIFY PHP MAIL IS WORKING ON HOSTINGER
+    - Test the speaking request form (contact.php) after uploading
+    - Hostinger shared hosting SMTP port 587 should work; if blocked, try port 465/SSL
+    - Check EMAIL_TROUBLESHOOTING.md for steps already documented
+
+[ ] ADD CSRF PROTECTION TO ALL FORMS
+    - contact.php speaking request form and give.php donation form have no CSRF tokens
+    - Minimum implementation:
+        PHP: session_start(); $_SESSION['csrf'] = bin2hex(random_bytes(32));
+        HTML: <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf'] ?>">
+        send.php: verify hash_equals($_SESSION['csrf'], $_POST['csrf_token'])
+
+[ ] CONFIRM ALL IMAGES EXIST ON SERVER
+    - assets/images/hands.jpeg (give page hero)
+    - assets/images/homeBanner.jpeg (home page hero)
+    - assets/images/founder.jpg (meet the founder)
+    - assets/images/darren-headshot.jpg (give page signature section)
+    - assets/images/largelogo.png (OG social share image)
+    - assets/images/signature.png
+    - assets/images/facebook-dark.svg, instagram-dark.svg, linkedin-dark.svg (footer)
+    - Any image referenced in index.php gateway-city-project section
+
+[ ] COMPRESS LARGE IMAGES
+    - homeBanner.jpeg and hands.jpeg are likely large — compress to <300KB each
+    - Recommended tool: squoosh.app or imageoptim
+    - Target: WebP format with JPEG fallback for hero images
+
+[ ] ADD FAVICON FILES
+    - head.php references favicon.ico and apple-touch-icon.png
+    - Confirm these exist in /assets/images/ or root
+    - Generate a full favicon set at: favicon.io or realfavicongenerator.net
+
+[ ] VERIFY COMPOSER DEPENDENCIES ON HOSTINGER
+    - Run `composer install --no-dev` on the server (or upload vendor/ folder)
+    - Confirm PHPMailer autoloads from vendor/autoload.php (send.php currently uses
+      manual requires — if you switch to Composer autoloading, update send.php)
+    - stripe-checkout.php uses require_once 'vendor/autoload.php' — confirm path
+
+[ ] TEST HTACCESS REWRITE RULES
+    - Clean URLs (/mission, /community, etc.) rely on mod_rewrite
+    - Confirm mod_rewrite is enabled on your Hostinger plan
+    - Test each route after upload: /mission, /community, /give, /contact,
+      /meet-the-founder, /gateway-city-project, /eleventh-hour-book
+
+[ ] SET UP SSL / HTTPS
+    - Hostinger provides free SSL — enable it in the control panel
+    - After enabling, confirm all asset paths load over HTTPS (no mixed content)
+    - The canonical URLs in head.php use dynamic HTTP/HTTPS detection — should work
+
+============================================================
+📈 SEO — Before or shortly after launch
+============================================================
+
+[ ] SUBMIT SITEMAP TO GOOGLE SEARCH CONSOLE
+    - sitemap.xml is already created — submit at search.google.com/search-console
+    - Verify domain ownership first
+
+[ ] UPDATE SITEMAP DATES AND CANONICAL DOMAIN
+    - Open sitemap.xml and replace placeholder domain with actual production domain
+    - Update <lastmod> dates to match actual launch date
+
+[ ] ADD GOOGLE ANALYTICS (GA4)
+    - Create a GA4 property at analytics.google.com
+    - Add the gtag.js snippet to partials/head.php before closing </head>
+
+[ ] UPDATE SCHEMA.ORG DATA IN FOOTER
+    - partials/footer.php has a NonprofitOrganization schema block
+    - Update "url": "https://thelightglobal.com" if domain is different
+    - Confirm @id, address fields, and sameAs social links are accurate
+
+[ ] ADD PROPER OG HERO IMAGE
+    - Current fallback OG image is largelogo.png (a logo, not a compelling preview)
+    - Create a 1200×630px image for social sharing (hero photo + logo overlay)
+    - Update $page_image default in partials/head.php once created
+
+[ ] UPDATE ROBOTS.TXT DOMAIN
+    - robots.txt has: Sitemap: https://thelightglobal.com/sitemap.xml
+    - Confirm this matches your actual production domain
+
+============================================================
+✨ RECOMMENDED — Conversion & content improvements
+============================================================
+
+[ ] UNCOMMENT / ADD TESTIMONIALS SECTION
+    - index.php has a commented-out or placeholder testimonials section
+    - Social proof significantly improves conversion for donation and membership CTAs
+
+[ ] ADD CONTACT FORM TO contact.php
+    - contact.php currently only shows address/phone/email — no submission form
+    - Consider adding a simple inquiry form (name, email, message) using send.php pattern
+
+[ ] ADD MEMBERSHIP PRICING / FAQ
+    - community.php and mission.php CTAs link to external Mighty Networks signup
+    - Consider adding a pricing summary or FAQ on the page to reduce drop-off
+
+[ ] GIVE PAGE — ADD RECURRING DONATION OPTION
+    - Stripe Checkout supports subscription mode
+    - Monthly giving significantly increases donor lifetime value
+
+[ ] REVIEW DARREN'S FOUNDER PAGE PHOTO
+    - Confirm founder.jpg is a high-quality, appropriately sized portrait
+    - The circular photo with border is well-designed — just ensure image quality
+
+============================================================
+🔧 TECHNICAL DEBT — Nice to have
+============================================================
+
+[ ] COMPILE SASS BEFORE UPLOADING
+    - Run: sass sass/style.scss css/style.css --style=compressed
+    - Also compile: sass eleventh-hour-book/sass/style.scss eleventh-hour-book/css/style.css --style=compressed
+    - The compiled CSS files are what the browser uses — keep them in sync with SCSS
+
+[ ] ADD prefers-reduced-motion TO MAIN SITE JS
+    - js/main.js has scroll/animation effects but no prefers-reduced-motion check
+    - Add at top: const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    - Wrap animations in: if (!prefersReducedMotion) { ... }
+
+[ ] CONSIDER CONTENT SECURITY POLICY (CSP) HEADER
+    - .htaccess security headers added, but CSP was intentionally omitted (complex)
+    - Once in production, use Report-Only mode to build a policy without breaking things
+    - Stripe and Google Fonts will need to be allowlisted
+
+[ ] REVIEW ERROR PAGES
+    - Consider adding a custom 404.php and redirecting via .htaccess
+    - ErrorDocument 404 /404.php
+
+============================================================
+📋 LAUNCH DAY CHECKLIST (quick run-through)
+============================================================
+
+[ ] Upload all files to Hostinger public_html (excluding: .env, test-smtp.php)
+[ ] Create .env on server directly (never upload from local)
+[ ] Run composer install on server or upload vendor/
+[ ] Enable SSL in Hostinger control panel
+[ ] Test all page routes (/, /mission, /community, /give, /contact, etc.)
+[ ] Submit a test speaking request — confirm email arrives
+[ ] Make a $1 test donation — confirm Stripe success/cancel pages work
+[ ] Check mobile layout on real device
+[ ] Run through PageSpeed Insights: pagespeed.web.dev
+[ ] Submit sitemap to Google Search Console

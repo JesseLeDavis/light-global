@@ -40,12 +40,43 @@ footer {
       align-items: center;
       gap: 12px;
 
+      .footer-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
       p {
         color: white;
         font-family: "Roboto", sans-serif;
         font-weight: lighter;
         font-size: 16px;
         text-align: center;
+        margin: 0;
+      }
+
+      .footer-legal-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+
+        a {
+          color: rgba(255, 255, 255, 0.8);
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #3D8ACA;
+          }
+        }
+
+        .separator {
+          color: rgba(255, 255, 255, 0.5);
+        }
       }
 
       .footer-image-container {
@@ -80,9 +111,21 @@ footer {
         justify-content: space-between;
         align-items: center;
 
+        .footer-left {
+          align-items: flex-start;
+        }
+
         p {
           font-size: 18px;
           text-align: left;
+        }
+
+        .footer-legal-links {
+          font-size: 16px;
+
+          a {
+            font-size: 16px;
+          }
         }
       }
     }

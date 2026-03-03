@@ -1,0 +1,111 @@
+.legal-page {
+  padding: 100px 20px;
+  min-height: 80vh;
+
+  .legal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #0f254a;
+      margin-bottom: 10px;
+    }
+
+    .last-updated {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .legal-content {
+      h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #0f254a;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: #3D8ACA;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        line-height: 180%;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        margin: 20px 0;
+        padding-left: 40px;
+
+        li {
+          font-family: "Poppins", sans-serif;
+          font-size: 16px;
+          line-height: 180%;
+          color: #333;
+          margin-bottom: 10px;
+        }
+      }
+
+      a {
+        color: #3D8ACA;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #2c7ba8;
+        }
+      }
+
+      strong {
+        font-weight: 600;
+        color: #0f254a;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 140px 40px;
+
+    .legal-container {
+      padding: 80px 60px;
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .legal-content {
+        h2 {
+          font-size: 32px;
+        }
+
+        h3 {
+          font-size: 24px;
+        }
+
+        p, ul li {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

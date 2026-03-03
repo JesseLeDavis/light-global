@@ -1,0 +1,16 @@
+# robots.txt for LIGHT Global
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive areas
+Disallow: /vendor/
+Disallow: /phpmailer/
+Disallow: /.env
+Disallow: /stripe-checkout.php
+Disallow: /send.php
+Disallow: /test-smtp.php
+Disallow: /test_email.php
+
+# Sitemap location
+Sitemap: https://thelightglobal.com/sitemap.xml

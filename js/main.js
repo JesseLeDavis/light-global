@@ -7,11 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
         mainNav.classList.add('open');
         menuToggle.classList.add('display-none');
+        menuToggle.setAttribute('aria-expanded', 'true');
     });
 
     closeMenu.addEventListener('click', () => {
         mainNav.classList.remove('open');
         menuToggle.classList.remove('display-none');
+        menuToggle.setAttribute('aria-expanded', 'false');
     });
 
     const navLinks = mainNav.querySelectorAll('a');
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             mainNav.classList.remove('open');
             menuToggle.classList.remove('display-none');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -60,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         },
         {
-            threshold: 0.9
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
         }
     );
 

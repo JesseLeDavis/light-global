@@ -1,4 +1,8 @@
-<?php include('partials/head.php'); ?>
+<?php
+$page_title = 'LIGHT Global Community: Connect with Global Leaders & Mentors';
+$page_description = 'Connect with high-capacity global leaders. Build peer relationships, share insights, and form Kingdom partnerships at LIGHT Global.';
+include('partials/head.php');
+?>
 <?php include('partials/header.php'); ?>
 
     <main class="community-page">

@@ -1,0 +1,91 @@
+.donation-result-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  .result-container {
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    .result-icon {
+      margin-bottom: 30px;
+
+      i {
+        font-size: 80px;
+      }
+    }
+
+    &.success .result-icon i {
+      color: #27ae60;
+    }
+
+    &.cancelled .result-icon i {
+      color: #e74c3c;
+    }
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #0f254a;
+      margin-bottom: 20px;
+    }
+
+    .result-message {
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #0f254a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+      color: #666;
+      line-height: 170%;
+      margin-bottom: 40px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .result-container {
+      padding: 80px 60px;
+
+      .result-icon i {
+        font-size: 100px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .result-message {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}

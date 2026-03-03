@@ -4,12 +4,12 @@
         <!-- Logo -->
             <div class="logo">
                 <a href="/">
-                    <img src="../assets/images/svg-logo.svg" alt="Light Global Logo">
+                    <img src="/assets/images/svg-logo.svg" alt="Light Global Logo">
                 </a>
             </div>
 
             <!-- Hamburger Icon -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="mainNav">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>

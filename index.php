@@ -1,4 +1,8 @@
-<?php include('partials/head.php'); ?>
+<?php
+$page_title = 'LIGHT Global - Transformative Mentorship for Kingdom Impact';
+$page_description = 'Equipping high-achieving leaders to expand their Kingdom impact through transformative mentorship. Join our community impacting Gateway Cities worldwide.';
+include('partials/head.php');
+?>
 <?php include('partials/header.php'); ?>
 
     <main>
@@ -22,7 +26,7 @@
             <!-- WHAT WE DO -->
             <div class="what-we-do">
                 <h2>What We Do</h2>
-                <p>We equip leaders through personalized mentorship and community.</p>
+                <p>We strengthen leaders through personalized mentorship and community.</p>
             </div>
 
             <!-- WHY IT MATTERS -->
@@ -31,7 +35,7 @@
                 <p>Because transformed leaders transform communities.</p>
             </div>
 
-            <img src="assets/images/largelogo.png">
+            <img src="assets/images/largelogo.png" alt="LIGHT Global Logo">
         </section>
 
         <!-- TESTIMONIALS -->

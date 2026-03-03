@@ -1,17 +1,21 @@
-<?php include('partials/head.php'); ?>
+<?php
+$page_title = 'Our Mission: Kingdom Impact Through Mentorship | LIGHT Global';
+$page_description = 'LIGHT Global equips Kingdom-driven leaders through transformative mentorship and community. Discover our who, what, and why.';
+include('partials/head.php');
+?>
 <?php include('partials/header.php'); ?>
 
     <main>
         <div class="mission-page">
             <section class="mission-header">
-                <h1>Elevating Kingdom Impact Through Transformative Mentorship & Community</h1>
+                <h1>Elevating Kingdom impact through transformative mentorship, community, and collaboration.</h1>
                 <p class="subheadline">We believe that when leaders grow, communities transform.</p>
             </section>
 
             <section class="mission-info first">
                 <h2>Our Who?</h2>
                 <p>
-                    LIGHT Global is a collective of high-achieving Marketplace & NPO leaders who are ready to elevate their Kingdom impact by journeying with others through transformative mentorship and community.
+                    LIGHT Global is a collective of high-achieving Marketplace & NPO leaders who are ready to elevate their Kingdom impact by journeying with others transformative mentorship, community and collaboration.
                 </p>
             </section>
 
@@ -30,16 +34,12 @@
             </section>
 
 
-            <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="cta-link">
             <section class="mission-cta">
-
                     <div>
                         <h2>Explore the Possibilities</h2>
-                        <span class="btn-large btn-white">Apply for Membership</span>
+                        <a href="https://thelightglobal.mn.co/plans/1911775?bundle_token=f14431f5eb7009d27ea68bec870eebdb" class="btn-large btn-white" target="_blank" rel="noopener noreferrer">Apply for Membership</a>
                     </div>
-
             </section>
-            </a>
 
         <div>
     </main>
