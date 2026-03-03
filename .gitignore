@@ -15,6 +15,9 @@ Thumbs.db
 .sass-cache/
 *.css.map
 
+# Composer dependencies (install on server with: composer install --no-dev)
+vendor/
+
 # Node modules (if you add npm later)
 node_modules/
 
