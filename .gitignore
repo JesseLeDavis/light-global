@@ -23,3 +23,14 @@ node_modules/
 
 # Log files
 *.log
+
+# Test/debug files (expose SMTP config)
+test-smtp.php
+test_email.php
+
+# Personal notes
+DAD_CALL_NOTES.txt
+
+# Original uncompressed images
+assets/images/originals/
+eleventh-hour-book/assets/originals/
