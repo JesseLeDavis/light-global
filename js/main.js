@@ -49,24 +49,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const animatedBlocks = document.querySelectorAll('.who-we-are, .what-we-do, .why-it-matters');
 
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animate-in');
-                    }, index * 300); // staggered delay
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        }
-    );
+    if (prefersReducedMotion) {
+        animatedBlocks.forEach(block => block.classList.add('animate-in'));
+    } else {
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-in');
+                        }, index * 300);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
 
-    animatedBlocks.forEach(block => observer.observe(block));
+        animatedBlocks.forEach(block => observer.observe(block));
+    }
 });

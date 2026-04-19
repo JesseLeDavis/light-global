@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 $page_title = 'Contact LIGHT Global | Mentorship & Speaking Inquiries';
 $page_description = 'Get in touch with LIGHT Global in Pompano Beach, FL. Reach out for leadership mentorship, speaking engagements, or partnership inquiries.';
 include('partials/head.php');
@@ -74,6 +76,7 @@ include('partials/head.php');
                 <div class="form-message" id="formMessage" role="alert" aria-live="polite"></div>
 
                 <form id="speakingRequestForm" novalidate>
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
 
                     <!-- ===== STEP 1: About You ===== -->
                     <div class="form-step active" id="formStep1" data-step="1">

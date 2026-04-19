@@ -1,30 +1,31 @@
 LIGHT GLOBAL — PRE-DEPLOYMENT CHECKLIST
 ========================================
 Generated after multi-agent audit (UI/UX, Design, Developer, SEO)
-Last updated: 2026-03-03
+Last updated: 2026-04-19
 
 ============================================================
 🚨 CRITICAL — BLOCKING (must fix before going live)
 ============================================================
 
+[x] GIT HISTORY SCRUBBED (done 2026-03-03)
+    - vendor/ removed from all commits using git-filter-repo and force pushed
+    - vendor/ added to .gitignore — will never be committed again
+    - Stripe test key that was in vendor/stripe/stripe-php/README.md is gone from history
+
 [ ] ROTATE ALL CREDENTIALS IMMEDIATELY
-    - Your SMTP password (Hiddenhollowman1@) and Stripe keys are in git history
-    - Even after fixing .env, the credentials are baked into past commits
+    - The old Stripe test key was publicly visible before the history scrub — roll it to be safe
     - Steps:
       1. Change your Gmail/Hostinger SMTP password NOW
-      2. Roll your Stripe Secret Key in the Stripe dashboard
+      2. Roll your Stripe Secret Key in the Stripe dashboard (Dashboard → Developers → API keys)
       3. Update .env on the server with new values
-      4. Never commit .env — confirm it is in .gitignore
-    - If you want to fully scrub the history: use `git filter-repo` or BFG Repo Cleaner
-      (only necessary if this repo is or will be public)
+      4. .env is already in .gitignore ✓
 
-[ ] DELETE test-smtp.php FROM PRODUCTION SERVER
-    - This file exposes SMTP config and can be used to send mail on your behalf
-    - Do not upload it; or block it at .htaccess (already done) AND delete the file
+[!] DELETE test-smtp.php FROM PRODUCTION SERVER
+    - This file exists locally — do NOT upload it to production
+    - It's already blocked in .htaccess, but should be deleted from the server if present
 
-[ ] VERIFY .gitignore IS IN PLACE BEFORE PUSHING
-    - Confirm .gitignore includes: .env, vendor/, composer.lock (optional), *.log
-    - Run: git status — make sure .env does not appear as staged/tracked
+[x] VERIFY .gitignore IS IN PLACE (done 2026-03-03)
+    - .env, vendor/, *.log all confirmed in .gitignore
 
 [ ] SET STRIPE TO LIVE MODE
     - Currently configured with test keys (sk_test_...)
@@ -32,13 +33,8 @@ Last updated: 2026-03-03
     - In give.php JS, swap publishable key (pk_test_...) for live publishable key
     - Test the full donation flow end-to-end in live mode with a real card
 
-[ ] CONFIGURE STRIPE WEBHOOK
-    - donation-success.php currently only shows a thank-you page — it does NOT verify
-      that payment was actually completed
-    - Anyone who navigates directly to /donation-success will see the success message
-    - Proper implementation: create a /stripe-webhook.php endpoint that listens for
-      checkout.session.completed events and marks the donation as confirmed
-    - At minimum: pass the Stripe session_id from the redirect URL and verify it
+[x] CONFIGURE STRIPE WEBHOOK
+    DONE — donation-success.php now verifies the Stripe session_id from the redirect URL. If payment_status !== 'paid', shows an error message instead of the success page. A full webhook endpoint is still recommended for production reliability but this covers the direct-navigation exploit.
 
 ============================================================
 ⚠️  IMPORTANT — Do before launch
@@ -49,32 +45,17 @@ Last updated: 2026-03-03
     - Hostinger shared hosting SMTP port 587 should work; if blocked, try port 465/SSL
     - Check EMAIL_TROUBLESHOOTING.md for steps already documented
 
-[ ] ADD CSRF PROTECTION TO ALL FORMS
-    - contact.php speaking request form and give.php donation form have no CSRF tokens
-    - Minimum implementation:
-        PHP: session_start(); $_SESSION['csrf'] = bin2hex(random_bytes(32));
-        HTML: <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf'] ?>">
-        send.php: verify hash_equals($_SESSION['csrf'], $_POST['csrf_token'])
+[x] ADD CSRF PROTECTION TO ALL FORMS
+    DONE — Added CSRF token generation in contact.php and give.php, with verification in send.php and stripe-checkout.php.
 
-[ ] CONFIRM ALL IMAGES EXIST ON SERVER
-    - assets/images/hands.jpeg (give page hero)
-    - assets/images/homeBanner.jpeg (home page hero)
-    - assets/images/founder.jpg (meet the founder)
-    - assets/images/darren-headshot.jpg (give page signature section)
-    - assets/images/largelogo.png (OG social share image)
-    - assets/images/signature.png
-    - assets/images/facebook-dark.svg, instagram-dark.svg, linkedin-dark.svg (footer)
-    - Any image referenced in index.php gateway-city-project section
+[x] CONFIRM ALL IMAGES EXIST ON SERVER
+    DONE — All images referenced in PHP files verified present locally. Note: founder.jpg and darren-headshot.jpg from original TODO are not referenced in any code.
 
-[ ] COMPRESS LARGE IMAGES
-    - homeBanner.jpeg and hands.jpeg are likely large — compress to <300KB each
-    - Recommended tool: squoosh.app or imageoptim
-    - Target: WebP format with JPEG fallback for hero images
+[x] COMPRESS LARGE IMAGES
+    DONE — All large images resized to max 1920px and compressed. Total savings: ~67MB → ~4.5MB (93% reduction). Originals backed up in assets/images/originals/.
 
-[ ] ADD FAVICON FILES
-    - head.php references favicon.ico and apple-touch-icon.png
-    - Confirm these exist in /assets/images/ or root
-    - Generate a full favicon set at: favicon.io or realfavicongenerator.net
+[x] ADD FAVICON FILES
+    DONE — favicon.ico, favicon.svg, and apple-touch-icon.png all exist in assets/images/ and are referenced in head.php.
 
 [ ] VERIFY COMPOSER DEPENDENCIES ON HOSTINGER
     - Run `composer install --no-dev` on the server (or upload vendor/ folder)
@@ -101,27 +82,23 @@ Last updated: 2026-03-03
     - sitemap.xml is already created — submit at search.google.com/search-console
     - Verify domain ownership first
 
-[ ] UPDATE SITEMAP DATES AND CANONICAL DOMAIN
-    - Open sitemap.xml and replace placeholder domain with actual production domain
-    - Update <lastmod> dates to match actual launch date
+[x] UPDATE SITEMAP DATES AND CANONICAL DOMAIN
+    DONE — All lastmod dates updated to 2026-04-19. Domain already set to thelightglobal.com.
 
 [ ] ADD GOOGLE ANALYTICS (GA4)
     - Create a GA4 property at analytics.google.com
     - Add the gtag.js snippet to partials/head.php before closing </head>
 
-[ ] UPDATE SCHEMA.ORG DATA IN FOOTER
-    - partials/footer.php has a NonprofitOrganization schema block
-    - Update "url": "https://thelightglobal.com" if domain is different
-    - Confirm @id, address fields, and sameAs social links are accurate
+[x] UPDATE SCHEMA.ORG DATA IN FOOTER
+    DONE — Schema uses dynamic URL detection. Address, contact, founder, and sameAs social links are all populated and accurate.
 
 [ ] ADD PROPER OG HERO IMAGE
     - Current fallback OG image is largelogo.png (a logo, not a compelling preview)
     - Create a 1200×630px image for social sharing (hero photo + logo overlay)
     - Update $page_image default in partials/head.php once created
 
-[ ] UPDATE ROBOTS.TXT DOMAIN
-    - robots.txt has: Sitemap: https://thelightglobal.com/sitemap.xml
-    - Confirm this matches your actual production domain
+[x] UPDATE ROBOTS.TXT DOMAIN
+    DONE — robots.txt sitemap URL matches production domain (thelightglobal.com).
 
 ============================================================
 ✨ RECOMMENDED — Conversion & content improvements
@@ -151,24 +128,19 @@ Last updated: 2026-03-03
 🔧 TECHNICAL DEBT — Nice to have
 ============================================================
 
-[ ] COMPILE SASS BEFORE UPLOADING
-    - Run: sass sass/style.scss css/style.css --style=compressed
-    - Also compile: sass eleventh-hour-book/sass/style.scss eleventh-hour-book/css/style.css --style=compressed
-    - The compiled CSS files are what the browser uses — keep them in sync with SCSS
+[x] COMPILE SASS BEFORE UPLOADING
+    DONE — Both main and eleventh-hour-book SCSS compiled with --style=compressed.
 
-[ ] ADD prefers-reduced-motion TO MAIN SITE JS
-    - js/main.js has scroll/animation effects but no prefers-reduced-motion check
-    - Add at top: const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    - Wrap animations in: if (!prefersReducedMotion) { ... }
+[x] ADD prefers-reduced-motion TO MAIN SITE JS
+    DONE — js/main.js now checks prefers-reduced-motion and shows elements immediately (no animation) when enabled.
 
 [ ] CONSIDER CONTENT SECURITY POLICY (CSP) HEADER
     - .htaccess security headers added, but CSP was intentionally omitted (complex)
     - Once in production, use Report-Only mode to build a policy without breaking things
     - Stripe and Google Fonts will need to be allowlisted
 
-[ ] REVIEW ERROR PAGES
-    - Consider adding a custom 404.php and redirecting via .htaccess
-    - ErrorDocument 404 /404.php
+[x] REVIEW ERROR PAGES
+    DONE — Created 404.php with consistent styling (reuses donation-result layout). ErrorDocument 404 added to .htaccess.
 
 ============================================================
 📋 LAUNCH DAY CHECKLIST (quick run-through)

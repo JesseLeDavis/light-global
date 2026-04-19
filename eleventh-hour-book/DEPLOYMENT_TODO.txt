@@ -18,33 +18,17 @@ BLOCKING (site will not convert without these)
       or
       href="https://buy.stripe.com/YOUR_LINK"
 
-[ ] 2. COMPRESS THE BOOK COVER IMAGE
-    assets/book.PNG is ~2MB. This will hurt load time and Core Web Vitals.
-    Target: under 400KB. Steps:
-      - Open in Photoshop, Preview, or Squoosh (squoosh.app)
-      - Export as WebP at 80–85% quality (preferred) or compress the PNG
-      - If using WebP, update index.html to use a <picture> tag with fallback:
-          <picture>
-            <source srcset="assets/book.webp" type="image/webp">
-            <img src="assets/book.PNG" alt="The Eleventh Hour Book Cover" class="book-image">
-          </picture>
+[x] 2. COMPRESS THE BOOK COVER IMAGE
+    DONE — Converted from PNG (2MB) to compressed JPEG (175KB). Original backed up in assets/originals/.
 
-[ ] 3. ADD FAVICON FILES
-    No favicon is linked in index.html. Without it, browsers show a blank tab icon.
-    Create and add:
-      - favicon.ico  (32x32)
-      - apple-touch-icon.png  (180x180)
-    Place both in eleventh-hour-book/ and add to <head> in index.html:
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
-      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+[x] 3. ADD FAVICON FILES
+    DONE — Copied favicon.ico and apple-touch-icon.png from main site. Links added to index.html <head>.
 
 
 IMPORTANT (SEO & TRUST)
 ------------------------
-[ ] 4. UPDATE CANONICAL URL
-    If the book lives at a different path than /eleventh-hour-book/, update:
-      index.html line ~18: <link rel="canonical" href="https://thelightglobal.com/eleventh-hour-book/">
-    Also update all og:image and twitter:image URLs with your real domain.
+[x] 4. UPDATE CANONICAL URL
+    DONE — Canonical URL is set to https://thelightglobal.com/eleventh-hour-book/ and all og:image/twitter:image URLs use thelightglobal.com. Updated image refs from book.PNG to book.jpg.
 
 [ ] 5. UPDATE SCHEMA.ORG DATA
     In the <script type="application/ld+json"> block, fill in real values:
@@ -60,9 +44,8 @@ IMPORTANT (SEO & TRUST)
       <p class="price">$19.99</p>
     Style it to match the section (white text in hero, dark text in CTA box).
 
-[ ] 7. UPDATE FOOTER COPYRIGHT YEAR
-    index.html footer: © 2025 The Eleventh Hour. All rights reserved.
-    Update to current year or use the publication year if that's intentional.
+[x] 7. UPDATE FOOTER COPYRIGHT YEAR
+    DONE — Updated to © 2026.
 
 
 RECOMMENDED (IMPROVES CONVERSIONS)
@@ -121,8 +104,7 @@ HOSTINGER-SPECIFIC
 
 [ ] 17. RUN A PAGESPEED TEST
     After deployment: https://pagespeed.web.dev/
-    Target: 90+ on mobile. The main thing holding you back will be book.PNG
-    size (see item #2 above).
+    Target: 90+ on mobile. Book image is now compressed (175KB), so this should score well.
 
 
 COMPILED CSS NOTE

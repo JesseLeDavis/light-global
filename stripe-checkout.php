@@ -49,6 +49,13 @@ require_once 'vendor/autoload.php';
 // Set your secret key
 \Stripe\Stripe::setApiKey($stripeSecretKey);
 
+// CSRF verification
+if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'])) {
+    $_SESSION['error'] = 'Invalid form submission. Please reload the page and try again.';
+    header('Location: /give');
+    exit;
+}
+
 // Get the amount from POST
 $amount = isset($_POST['amount']) ? floatval($_POST['amount']) : 0;
 

@@ -20,10 +20,19 @@ if (file_exists($envFile)) {
     }
 }
 
+session_start();
+
 // Only accept POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Content-Type: application/json");
     echo json_encode(["success" => false, "error" => "Invalid request method"]);
+    exit;
+}
+
+// CSRF verification
+if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'])) {
+    header("Content-Type: application/json");
+    echo json_encode(["success" => false, "error" => "Invalid form submission. Please reload the page and try again."]);
     exit;
 }
 

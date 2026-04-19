@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 $page_title = 'Donate to LIGHT Global | Support Transformative Leadership';
 $page_description = 'Your donation equips leaders and transforms communities. Support LIGHT Global\'s mission to advance Kingdom impact worldwide.';
 include('partials/head.php');
@@ -37,6 +39,7 @@ include('partials/head.php');
                 <h2>Choose Your Gift Amount</h2>
 
                 <form id="donationForm" action="stripe-checkout.php" method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                     <div class="amount-options">
                         <button type="button" class="amount-btn" data-amount="25">$25</button>
                         <button type="button" class="amount-btn" data-amount="50">$50</button>
