@@ -8,16 +8,16 @@
   background-repeat: no-repeat; /* Prevents tiling */
   h1 {
     font-family: "Poppins", sans-serif;
-    width: 60%;
+    width: 90%;
     font-weight: 700;
     font-style: normal;
-    font-size: 30px;
+    font-size: clamp(28px, 7vw, 100px);
     color: white;
   }
 
   @media (min-width: 768px) {
     h1{
-      font-size: 100px;
+      width: 60%;
     }
   }
 }

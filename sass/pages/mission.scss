@@ -5,21 +5,21 @@
     flex-direction: column;
     justify-content: center;
     gap: 30px;
-    min-height: 100vh;
+    min-height: 70vh;
     padding: 30px;
     background-image: url('../../assets/images/missionhead.jpeg');
-    background-size: cover;       /* Makes the image cover the container */
-    background-position: center;  /* Centers the image */
-    background-color: rgba(23, 37, 62, .4); /* Black with 50% opacity */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(23, 37, 62, .4);
     background-blend-mode: darken;
-    background-repeat: no-repeat; /* Prevents tiling */
+    background-repeat: no-repeat;
 
     h1 {
       font-family: "Poppins", sans-serif;
-      width: 60%;
+      width: 90%;
       font-weight: 700;
       font-style: normal;
-      font-size: 45px;
+      font-size: clamp(32px, 7vw, 100px);
       color: white;
     }
 
@@ -42,7 +42,7 @@
       font-family: "Poppins", sans-serif;
       font-weight: 700;
       font-style: normal;
-      font-size: 50px;
+      font-size: clamp(32px, 8vw, 150px);
       color: #3D8ACA;
     }
 
@@ -80,9 +80,10 @@
 
     @media (min-width: 768px) {
       .mission-header{
+        min-height: 100vh;
         padding: 100px;
         h1{
-          font-size: 100px;
+          width: 60%;
         }
         p{
           font-size: 20px;
@@ -90,9 +91,6 @@
       }
       .mission-info {
         width: 60%;
-        h2{
-          font-size: 150px;
-        }
         p{
           font-size: 25px;
         }

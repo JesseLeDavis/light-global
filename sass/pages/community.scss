@@ -4,21 +4,21 @@
     flex-direction: column;
     justify-content: center;
     gap: 30px;
-    min-height: 100vh;
+    min-height: 70vh;
     padding: 30px;
     text-align: left;
 
     background-image: url('../../assets/images/crowd.jpeg');
-    background-size: cover;       /* Makes the image cover the container */
-    background-position: center;  /* Centers the image */
-    background-color: rgba(23, 37, 62, .8); /* Black with 50% opacity */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(23, 37, 62, .8);
     background-blend-mode: darken;
-    background-repeat: no-repeat; /* Prevents tiling */
+    background-repeat: no-repeat;
 
     h1 {
       font-family: "Poppins", sans-serif;
       font-weight: 700;
-      font-size: 45px;
+      font-size: clamp(32px, 7vw, 120px);
       max-width: 800px;
       color: white;
     }
@@ -101,10 +101,8 @@
 
   @media (min-width: 768px) {
     .community-header {
+      min-height: 100vh;
       padding: 100px;
-      h1 {
-        font-size: 120px;
-      }
       .subheadline {
         font-size: 20px;
       }

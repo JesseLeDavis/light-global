@@ -339,7 +339,7 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    padding: 14px 18px;
+    padding: 16px 18px;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     background: #ffffff;
@@ -550,10 +550,14 @@
     }
 
     .success-icon {
-      font-size: 72px;
+      font-size: 48px;
       color: #27ae60;
       margin-bottom: 24px;
       line-height: 1;
+
+      @media (min-width: 768px) {
+        font-size: 72px;
+      }
     }
 
     h3 {
