@@ -18,7 +18,7 @@ include('partials/head.php');
             <div class="founder-bio fb-2">
                 <h2>About Darren</h2>
                 <p>
-                    Darren C Davis is a former Fortune 100 Executive, 3x nonprofit founder, international speaker, and author of <em>The Eleventh Hour</em>. As the founder of LIGHT Global, Darren has dedicated his life to equipping high-achieving leaders to expand their Kingdom impact through transformative mentorship.
+                    Darren C Davis is a former Fortune 100 Executive, 3x nonprofit founder, international speaker, and author of <a href="https://eleventhhourbook.com/" target="_blank" rel="noopener noreferrer"><em>The Eleventh Hour</em></a>. As the founder of LIGHT Global, Darren has dedicated his life to equipping high-achieving leaders to expand their Kingdom impact through transformative mentorship.
                 </p>
                 <p>
                     Early in his career, Darren worked alongside Walmart's founder, Sam Walton, where he learned what it means to lead with integrity and Kingdom purpose. These experiences shaped his transition into nonprofit leadership—impacting lives across the U.S. and over 50 nations globally.
@@ -27,7 +27,7 @@ include('partials/head.php');
                     Darren's passion is helping leaders grow spiritually, professionally, and personally—empowering them to influence culture and transform communities.
                 </p>
                 <p>
-                    Check out <em>The Eleventh Hour</em>, which chronicles Darren's journey to understanding his true identity in God, unique calling to love people and generational destiny to impact the world.
+                    Check out <a href="https://eleventhhourbook.com/" target="_blank" rel="noopener noreferrer"><em>The Eleventh Hour</em></a>, which chronicles Darren's journey to understanding his true identity in God, unique calling to love people and generational destiny to impact the world.
                 </p>
 
                 <!-- Social Media Links -->
